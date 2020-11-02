@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="index.js"></script>
+    <title>Document</title>
+  </head>
+  <style>
+    body{
+      background-color: lightblue;
+    }
+    .container {
+      margin: auto;
+      margin-top: 10%;
+      width: 70%;
+      display: flex;
+      flex-direction: row;
+    }
+    p {
+      padding: 0;
+    }
+
+    td,
+    th {
+      /* border: 1px solid #000000; */
+      padding: 0;
+      margin: 0;
+      padding: 2px;
+      text-align: center;
+    }
+    th {
+      background-color: lightpink;
+      height: 40px;
+      text-transform: uppercase;
+    }
+
+    thead>tr>th:first-child{
+      border-top-left-radius: 10px;
+    }
+    thead>tr>th:last-child{
+      border-top-right-radius: 10px;
+    }
+
+    tbody>tr:last-child>td:first-child{      
+      border-bottom-left-radius: 10px;
+    }
+    tbody>tr:last-child>td:last-child{      
+      border-bottom-right-radius: 10px;
+    }
+
+    tr:hover {
+      cursor: pointer;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    .table_data{
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .form {
+      height: 250px;
+      display: none;
+      width: 0%;
+      margin-left: 2%;
+      box-sizing: border-box;
+      background-color: lightpink;
+      border-radius: 10px;
+    }
+
+    .form_data{
+      overflow: hidden;
+      padding: 15px 10px 10px 10px;
+      display: flex;
+      margin: auto;
+      flex-direction: column;
+      width: 90%;
+    }
+
+    tr {
+      line-height: 0px;
+    }
+
+    button {
+      margin: 10px auto;
+      text-transform: uppercase;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.35s ease 0s;
+      border-radius: 15px;
+      outline: none;
+      background-color: #1ab2ff;
+      padding: 10px 10px;
+      border: none;
+      cursor: pointer;
+      width: 15%;
+      color: white;
+    }
+    button:hover{
+      background-color: #2ee59d;
+      box-shadow: 0px 10px 22px rgba(46, 229, 157, 0.3);
+      color: #fff;
+      transform: translateY(-7px);
+    }
+
+    .xoa{
+      background-color: #ff4d4d;
+    }
+    .edit{
+      width: 40%;
+      background-color: #ff9966;
+    }
+    .edit:hover{
+      width: 50%;
+      transform: none;
+    }
+    .confirm {
+      width: 100px;
+      margin-top: 3px;
+    }
+
+    select{
+      margin-bottom: 10px;
+      height: 30px;
+      border: none;
+      border-radius: 10px;
+    }
+    
+
+    .classFormIn{
+      -webkit-animation: formIn 0.75s;
+    }
+    .classFormOut{
+      -webkit-animation: formOut 0.75s;
+    }
+    .classTableIn{
+      -webkit-animation: tableIn 0.75s;
+    }
+    .classTableOut{
+      -webkit-animation: tableOut 0.75s;
+    }
+
+    @keyframes formIn {
+      from{
+        width: 0%;
+      }
+      to{
+        width: 23%;
+        
+      }
+    }
+
+    @keyframes formOut {
+      from{
+        width: 23%;
+      }
+      to{
+        width: 0px;
+      }
+    }
+
+    @keyframes tableIn{
+      from{
+        width: 100%;
+      }
+      
+      to{
+        width: 75%;
+      }
+    }
+    @keyframes tableOut{
+      from{
+        width: 75%;
+      }
+
+      to{
+        width: 100%;
+      }
+    }
+
+    input {
+      height: 30px;
+      margin: 0 0 15px 0;
+      padding: 0 0 0 5px;
+      width: 100%;
+      box-sizing: border-box;
+      outline: none;
+      border-radius: 10px;
+      border: none;
+      /* background: rgba(0, 0, 0, 0.05); */
+    }
+
+    input[type='checkbox'] { 
+      width: 15px;
+      height: 15px;
+      align-self: center;
+      margin: 0;
+     }
+
+    label{
+      width: 75px;
+      /* margin-top: 10px; */
+      padding-left: 2px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="table_data">
+        <table>
+          <thead>
+            <tr>
+              <th><input type="checkbox" name="" id="box0" /></th>
+              <th>Họ tên</th>
+              <th>Ngày sinh</th>
+              <th>Giới tính</th>
+              <th>Lựa chọn</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+       <div class="buttons">
+        <button class="xoa">Xoá</button>
+        <button class="add">Thêm</button>
+       </div>
+      </div>
+      <div class="form">
+        <div class="form_data">
+          <label for="name">Họ và tên:</label>
+        <input type="text" class="input_name" id="name" required />
+        <label for="birth">Ngày sinh:</label>
+        <input
+          type="date"
+          data-date-format="DD MMMM YYYY"
+          class="input_birth"
+          id="birth"
+          required
+        />
+        <label for="gender">Giới tính:</label>
+        <select class="input_gender" id="gender" required>
+          <option value="Nam">Nam</option>
+          <option value="Nữ">Nữ</option>
+        </select>
+        
+        <button class="confirm">Xác nhận</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
