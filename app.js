@@ -1,4 +1,4 @@
-const startUtil = require("./BmApp/startUtil");
+const startUtil = require("BmApp/startUtil");
 const express = require("express");
 var cors = require("cors");
 var app = express();
