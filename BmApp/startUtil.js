@@ -1,4 +1,4 @@
-require('../BmApp/modelBase');
+require('./modelBase');
 const config = require('../config/database');
 const mongodb = require('mongodb');
 const { resolve } = require('path');
@@ -6,6 +6,8 @@ const { resolve } = require('path');
 process.app = app = {};
 app.config = config;
 console.log('app2: ', app)
+
+
 module.exports.startApp = async function (callback) {
   await startDB();
   callback();
