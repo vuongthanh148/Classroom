@@ -1,4 +1,5 @@
-const BaseModel = require('../bmapp/index').BaseModel;
+const BaseModel = require('../bmapp/index.js').BaseModel;
+console.log('baseModel: ',BaseModel)
 
 class Users extends BaseModel {
   /** @param {Partial<Users>} data */
@@ -8,7 +9,6 @@ class Users extends BaseModel {
     this.name = '';
     this.birthday = '';
     this.sex = '';
-
   }
 
   getDataRaw() {

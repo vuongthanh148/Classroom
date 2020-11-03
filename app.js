@@ -1,4 +1,5 @@
-const startUtil = require(".\\BmApp\\startUtil.js");
+const startUtil = require("./bmapp/startUtil.js");
+const ClassUser = require("./model/user");
 const express = require("express");
 var cors = require("cors");
 var app = express();
@@ -35,7 +36,6 @@ var data = [
 
 startUtil.startApp(function (err) {
   console.log(err);
-  const ClassUser = require("./model/user");
   const user = new ClassUser();
   // data.forEach((d) => {
   //   user.new(d);

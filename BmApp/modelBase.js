@@ -1,6 +1,6 @@
 const app = process.app;
 const mongodb = require('mongodb');
-
+console.log('app1: ',app)
 class BaseModel {
   constructor(name) {
       this.collection = app.db.collection(name);
