@@ -52,7 +52,7 @@ startUtil.startApp(function (err) {
     user.getAll().then((data) => {
       newData = data;
       res.send(newData);
-      console.log(newData);
+      console.log('data ',JSON.stringify(newData));
     });
   });
 

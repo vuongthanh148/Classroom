@@ -1,0 +1,32 @@
+[
+    {
+        "_id": "5f9a376b1aa6fd0a08e23b00",
+        "name": "Vương Tiến Thành",
+        "sex": "Nam",
+        "birthday": "14/08/2000"
+    },
+    {
+        "_id": "5fa00275d0f45924585fc613",
+        "name": "Lê Thị Hạnh",
+        "sex": "Nữ",
+        "birthday": "19/04/2000"
+    },
+    {
+        "_id": "5fa00288d0f45924585fc614",
+        "name": "Lê Tiến Nam",
+        "sex": "Nam",
+        "birthday": "05/12/1990"
+    },
+    {
+        "_id": "5fa002a7d0f45924585fc615",
+        "name": "Lê Quang Duy",
+        "sex": "Nam",
+        "birthday": "31/12/2000"
+    },
+    {
+        "_id": "5fa03ce414a04112fc3d3dce",
+        "name": "asdasd",
+        "sex": "Nam",
+        "birthday": "31/12/2323"
+    }
+]
