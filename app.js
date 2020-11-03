@@ -1,8 +1,8 @@
-import { startApp } from "BmApp/startUtil";
-import express, { json, static } from "express";
-import cors from "cors";
+const startUtil = require("BmApp\\startUtil.js");
+const express = require("express");
+var cors = require("cors");
 var app = express();
-app.use(json());
+app.use(express.json());
 app.use(cors());
 
 var data = [
@@ -33,7 +33,7 @@ var data = [
   },
 ];
 
-startApp(function (err) {
+startUtil.startApp(function (err) {
   console.log(err);
   const ClassUser = require("./model/user");
   const user = new ClassUser();
@@ -41,7 +41,7 @@ startApp(function (err) {
   //   user.new(d);
   // });
   var newData;
-  app.use(static(__dirname + '/views'));
+  app.use(express.static(__dirname + '/views'));
   console.log(__dirname + '/views');
 
   // app.get("/", (req, res) => {
